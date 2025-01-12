@@ -2,6 +2,45 @@
 
 A simple Node.js application that simulates a Multi-Option Deposit system for cryptocurrency portfolios. Users' balances are stored in a JSON file, and monthly rebalancing can be triggered via an HTTP endpoint.
 
+## File Structure
+my-mod-project/
+├── package.json
+├── README.md
+├── .gitignore
+├── index.js                 # Main entry point (starts server, initializes data)
+└── src
+    ├── domain/                  # Core business logic (entities, strategies, plan factory)
+    │   ├── user.js
+    │   ├── planFactory.js
+    │   ├── plans/
+    │   │   ├── basePlan.js
+    │   │   ├── bronzePlan.js
+    │   │   ├── silverPlan.js
+    │   │   ├── goldPlan.js
+    │   │   └── diamondPlan.js
+    │   ├── thresholdStrategy.js
+    │   └── strategies/
+    │       ├── fixedThresholdStrategy.js
+    │       └── noThresholdStrategy.js
+    ├── services/
+    │   ├── dataStoreService.js  # Reads/writes to JSON file
+    │   ├── modService.js        # Interest calculation & rebalancing
+    │   ├── analyticsService.js  # Summarizes total interest, plan distribution
+    │   └── emailService.js      # (Optional) for sending notifications
+    ├── controllers/
+    │   ├── userController.js
+    │   ├── modController.js
+    │   ├── portfolioController.js
+    │   └── analyticsController.js
+    ├── routes/
+    │   ├── userRoutes.js
+    │   ├── modRoutes.js
+    │   ├── portfolioRoutes.js
+    │   └── analyticsRoutes.js
+    └── data/
+        └── users.json           # JSON file for user data
+
+
 ## How to Run
 
 1. **Install dependencies**:
