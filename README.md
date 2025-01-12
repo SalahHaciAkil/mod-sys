@@ -69,6 +69,9 @@ my-mod-project/
    - It credits interest to their `main` account.
    - It moves any surplus funds above the fixed threshold from their `main` account to their `mod` account.
    - It updates user plans accordingly.
+  
+3. **Analytics**:
+    - The application provides an analytics endpoint (`GET /api/analytics`) to summarize total interest and plan distribution.
 
-3. **Data Storage**:
+4. **Data Storage**:
    - User balances are stored in a JSON file (`data/balances.json`).
